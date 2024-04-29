@@ -4,11 +4,6 @@ const store_1 = require("./store");
 const logger_1 = require("./logger");
 (0, logger_1.startLogger)();
 setInterval(() => {
-    store_1.games.push({
-        id: Math.random().toString(),
-        whitePlayerName: "alice",
-        blackPlayerName: "Denzel",
-        moves: []
-    });
+    store_1.gameManager.addGame(Math.random().toString());
 }, 5000);
 //ws server to get moves
