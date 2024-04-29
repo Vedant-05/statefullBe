@@ -1,10 +1,19 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.gameManager = exports.GameManager = void 0;
+// Adapter pattern, Factory Pattern, Singleton Pattern, Strategy Pattern
+// will use singleton ,so make constructor private
 class GameManager {
     constructor() {
         this.games = [];
         this.games = [];
+    }
+    static getInstanace() {
+        if (GameManager.instance) {
+            return GameManager.instance;
+        }
+        GameManager.instance = new GameManager();
+        return GameManager.instance;
     }
     addMove(gameId, move) {
         console.log(`Adding move ${move} to game ${gameId}`);
@@ -25,4 +34,4 @@ class GameManager {
     }
 }
 exports.GameManager = GameManager;
-exports.gameManager = new GameManager();
+exports.gameManager = GameManager.getInstanace();
